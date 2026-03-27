@@ -9,6 +9,16 @@ import SectionDivider from '@/components/common/SectionDivider';
 import { Button } from '@/components/ui/button';
 import { UnavailableAction } from '@/components/ui/unavailable-action';
 import SectionHeading from '@/components/common/SectionHeading';
+import CompactSectionSubtitle from '@/components/common/CompactSectionSubtitle';
+import CreatorProfileInfoGrid from '@/components/common/CreatorProfileInfoGrid';
+import MiniStatChip from '@/components/common/MiniStatChip';
+
+const FEATURED_CREATOR_FACTS = [
+	{ label: 'Membership', value: 'Collectors Circle' },
+	{ label: 'Drop cadence', value: 'Weekly releases' },
+	{ label: 'Focus', value: 'Illustration and motion' },
+	{ label: 'Community', value: 'Private behind-the-scenes notes' },
+];
 
 // Fallback demo data in case API fails
 const DEMO_CREATORS: Course[] = [
@@ -208,6 +218,29 @@ function LandingPage() {
 							/>
 						</div>
 					)}
+				</section>
+
+				<SectionDivider title="Creator profile pattern" spacing="relaxed" />
+
+				<section className="grid gap-8 rounded-[2rem] border border-white/10 bg-white/[0.045] p-6 shadow-[0_24px_80px_-60px_rgba(8,17,31,0.95)] backdrop-blur-sm md:p-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
+					<div>
+						<SectionHeading
+							eyebrow="Profile spotlight"
+							title="A reusable profile facts layout for featured creators"
+							className="mb-4"
+						/>
+						<CompactSectionSubtitle className="max-w-xl">
+							Use the same subtitle pattern beneath headings, then drop
+							repeated creator facts into one responsive grid that stays
+							tidy on mobile and desktop.
+						</CompactSectionSubtitle>
+						<div className="mt-5 flex flex-wrap gap-2">
+							<MiniStatChip label="Status" value="Verified creator" />
+							<MiniStatChip label="Audience" value="12.4K collectors" />
+							<MiniStatChip label="Access" value="Member-first drops" />
+						</div>
+					</div>
+					<CreatorProfileInfoGrid items={FEATURED_CREATOR_FACTS} />
 				</section>
 			</div>
 		</main>

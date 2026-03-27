@@ -13,6 +13,8 @@ import CreatorInitialsAvatar from '@/components/common/CreatorInitialsAvatar';
 import WalletConnectCalloutBanner from '@/components/common/WalletConnectCalloutBanner';
 import CreatorSocialLinksList from '@/components/common/CreatorSocialLinksList';
 import TransactionStatusIcon from '@/components/common/TransactionStatusIcon';
+import MiniStatChip from '@/components/common/MiniStatChip';
+import CreatorListRowDivider from '@/components/common/CreatorListRowDivider';
 
 interface CreatorCardProps {
 	creator: Course;
@@ -92,6 +94,15 @@ const CreatorCard: React.FC<CreatorCardProps> = ({ creator, className }) => {
 				<p className="font-jakarta text-sm text-white/50">
 					@{creator.instructorId || 'creator'}
 				</p>
+				<div className="mt-3 flex flex-wrap gap-2">
+					<MiniStatChip label="Price" value={`${creator.price} ETH`} />
+					<MiniStatChip
+						label="Category"
+						value={creator.category || 'General'}
+					/>
+					<MiniStatChip label="Level" value={creator.level || 'Open'} />
+				</div>
+				<CreatorListRowDivider className="my-4" />
 				<div className="mt-3 space-y-1.5">
 					<CardMetaRow
 						label={
